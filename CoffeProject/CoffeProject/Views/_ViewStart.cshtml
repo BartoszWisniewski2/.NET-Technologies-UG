@@ -1,0 +1,22 @@
+﻿
+@using CoffeProject.Utility
+
+@if (User.IsInRole(SD.AdminUser) || User.IsInRole(SD.ModeratorUser))
+{
+
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+
+}
+else if(User.IsInRole(SD.CustomerUser))
+{
+
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+
+}
+else
+{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+

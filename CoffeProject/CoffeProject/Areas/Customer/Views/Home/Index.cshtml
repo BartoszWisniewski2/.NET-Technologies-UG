@@ -1,0 +1,42 @@
+﻿@model IEnumerable<CoffeProject.Models.CoffeItem>
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<br />
+<br />
+<div class="backgroundWhite border">
+
+    <div class="row">
+        <div class="col-6">
+            <h2 class="text-info">Produkty</h2>
+        </div>
+        <div class="col-4">
+            <input id="SearchStringValue" class="form-control" />
+        </div>
+        <div class="col-2">
+            <button class="btn btn-success form-control" type="button" onclick="replaceContentsOfDiv(this.id)" id="_PartialView">Wyszukaj</button>
+        </div>
+    </div>
+
+    <br />
+    <div id="placeHolderDiv">
+        <partial name="_PartialView" model="Model" />
+    </div>
+</div>
+
+<script>
+    function replaceContentsOfDiv(partialViewToInsert) {
+        var val = $('#SearchStringValue').val();
+        $.ajax({
+            url: '@Url.Action("AddPartialToView", "Home")',
+            data: { id: partialViewToInsert, searchString: val},
+            type: "POST",
+            success: function(data) {
+                $('#placeHolderDiv').html(data);
+            }
+        });
+    }
+</script>

@@ -1,0 +1,71 @@
+﻿@model CoffeProject.Models.CoffeItem
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<br />
+<br />
+<form method="post" asp-action="Delete">
+    <div class="border backgroundWhite">
+        <fieldset disabled>
+            <h2 class="text-info">Usuń Kawę</h2>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Name" class="col-form-label"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="Name" readonly class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Description" class="custom-label"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="Description" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Price" class="custom-label"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="Price" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Manufacturer.Name" class="custom-label"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="Manufacturer.Name" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="CoffeType.Name" class="custom-label"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="CoffeType.Name" class="form-control" />
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="MinimumBestBeforeDate" class="custom-label"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="MinimumBestBeforeDate" class="form-control" />
+                </div>
+            </div>
+        </fieldset>
+
+
+        <div class="form-group row">
+            <div class="col-5 offset-2">
+                <partial name="_DeleteAndBackToListButton" model="Model.Id" />
+            </div>
+        </div>
+    </div>
+</form>
